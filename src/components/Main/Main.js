@@ -39,13 +39,14 @@ function Main({ weatherTemp, onSelectCard }) {
       <section className="card_section" id="card-section">
         Today is {temp}° {currentTemperatureUnit} / You may want to wear:
         <div className="card_items">
-          {filteredCards.map((item, index) => (
+          {filteredCards.map((item, index) => {
+            return (
             <ItemCard
               item={item}
               onSelectCard={onSelectCard}
               key={`item-card-${index}`}
-            />
-          ))}
+            /> );
+})}
         </div>
       </section>
     </main>

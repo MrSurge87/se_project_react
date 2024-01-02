@@ -68,16 +68,16 @@ function App() {
             <Route path="/profile"> 
               <Profile 
               onSelectCard={handleSelectedCard}
-              clothingItems={clothingItems}
               onCreate={handleCreateModal}
+              clothingItems={clothingItems}
               />
             </Route>
           </Switch>
         <Footer />
-        {/* {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal === "create"} onAddItem={onAddItem} /> }
+        {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal === "create"} onAddItem={onAddItem} /> }
         {activeModal === "preview" && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
-        )} */}
+        )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

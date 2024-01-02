@@ -17,7 +17,7 @@ const Profile = ({onCreate, clothingItems, onSelectCard}) => {
                     </button>
                 </div>
                 <ClothesSection clothingItems={clothingItems} 
-                onSelectCard={onSelectCard} />
+                onSelectCard={onSelectCard}  />
             </div>
         </div>
     )
