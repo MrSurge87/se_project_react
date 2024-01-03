@@ -41,9 +41,7 @@ function App() {
 
   const onAddItem = (values) => {
     const res = postItems(values);
-    console.log(res);
     setClothingItems((items) => [res, ...items]);
-    console.log(res);
     handleCloseModal();
   } ;
 
@@ -54,7 +52,7 @@ function App() {
       setTemp(temperature);
     })
     .catch((err) => console.log(err));
-    getItems()
+    getItems().then(data => setClothingItems(data))
   }, []);
 
   return (
@@ -63,7 +61,7 @@ function App() {
         <Header onCreateModal={handleCreateModal} city={city} temp={temp} />
           <Switch>
             <Route exact path="/">
-              <Main weatherTemp={temp} onSelectCard={handleSelectedCard}  />
+              <Main weatherTemp={temp} onSelectCard={handleSelectedCard} clothingItems={clothingItems} />
             </Route>
             <Route path="/profile"> 
               <Profile 
