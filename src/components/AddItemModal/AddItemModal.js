@@ -3,6 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({handleCloseModal, onAddItem, isOpen}) => {
   const [name, setName] = useState("");
+  
   const handleNameChange = (e) => {
     setName(e.target.value);
   }
