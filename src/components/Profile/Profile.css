@@ -53,6 +53,10 @@
     border: none;
     margin-left: 20px;
   }
+
+  .profile__add-button:hover {
+    cursor: pointer;
+  }
   
   .profile__items-text {
     margin: 0 auto;
