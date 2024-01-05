@@ -3,7 +3,7 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-const ClothesSection = ({onSelectCard, onCreate, clothingItems}) => {
+const ClothesSection = ({onSelectCard, onCreate, clothingItems, onAddItem}) => {
     const userClothing = clothingItems.filter((item) => {
         return item.weather;
     });
@@ -14,8 +14,11 @@ const ClothesSection = ({onSelectCard, onCreate, clothingItems}) => {
                 return (
                 <ItemCard 
                 item={item} 
+                key={item?._id ?? item?.id} 
                 onSelectCard={onSelectCard} 
-                key={item?._id ?? item?.id}  />
+                onCreate={onCreate}
+                onAddItem={onAddItem}
+                 />
                 );
             })}
         </div>

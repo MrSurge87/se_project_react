@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
 import "./Profile.css";
 
-const Profile = ({onCreate, clothingItems, onSelectCard}) => {
+const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem}) => {
 
     return (
         <div className="profile">
@@ -20,7 +20,8 @@ const Profile = ({onCreate, clothingItems, onSelectCard}) => {
                 <ClothesSection 
                 clothingItems={clothingItems} 
                 onSelectCard={onSelectCard} 
-                onCreate={onCreate} />
+                onCreate={onCreate} 
+                onAddItem={onAddItem}/>
             </div>
         </div>
     )
