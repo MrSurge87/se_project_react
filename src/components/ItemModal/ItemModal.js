@@ -1,4 +1,5 @@
 import "./ItemModal.css";
+import React, {onClick} from "react";
 
 const ItemModal = ({ selectedCard, onClose }) => {
   return (
@@ -7,7 +8,10 @@ const ItemModal = ({ selectedCard, onClose }) => {
       <button className="preview-image-close" type="button" onClick={onClose}></button>
         <img className="image-preview" src={selectedCard.imageUrl} alt="image-preview"></img>
         
-        <div className="preview-image-name"> {selectedCard.name} </div>
+        <div className="preview-image-name"> {selectedCard.name} 
+          <button className="delete-button" onClick={onClick}>
+            Delete Item
+          </button></div>
         <div className="preview-image-weather-type"> Weather Type: {selectedCard.weather} </div>
       </div>
     </div>

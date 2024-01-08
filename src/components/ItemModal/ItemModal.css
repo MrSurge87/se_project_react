@@ -32,6 +32,8 @@
 }
 
 .preview-image-name {
+  display: flex;
+  justify-content: space-between;
   color: #000;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 20px;
@@ -40,6 +42,7 @@
   line-height: 24px;
   margin-top: 20px;
   margin-left: 32px;
+  margin-right: 32px;
   margin-bottom: 12px;
 }
 
@@ -52,4 +55,20 @@
   line-height: 24px;
   margin-left: 32px;
   margin-bottom: 32px;
+}
+
+.delete-button {
+  background-color: #FFF;
+  border: none;
+  color: #FF4D00;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; 
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  color: #FF4D00;
 }

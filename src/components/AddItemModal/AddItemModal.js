@@ -1,21 +1,22 @@
 import React, {useState, } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({handleCloseModal, onAddItem, isOpen, handleAddItemSubmit}) => {
+const AddItemModal = ({handleCloseModal, onAddItem, isOpen}) => {
   
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
   }
 
-  const [link, setUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const handleUrlChange = (e) => {
-    setUrl(e.target.value)
+    setImageUrl(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddItemSubmit({name, link, weatherType})
+    onAddItem({name, imageUrl, weatherType})
+    
   }
 
   const [weatherType, setWeatherType] = useState("");
@@ -50,11 +51,9 @@ const AddItemModal = ({handleCloseModal, onAddItem, isOpen, handleAddItemSubmit}
               className="input"
               type="url"
               name="url"
-              minLength="1"
-              maxLength="30"
               placeholder="Image URL"
               id="input-url"
-              value={link}
+              value={imageUrl}
               onChange={handleUrlChange}
             />
           </li>

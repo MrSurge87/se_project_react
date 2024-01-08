@@ -13,6 +13,7 @@ import {CurrentTemperatureUnitContext} from "../Contexts/CurrentTemperatureUnitC
 import {Switch, Route} from "react-router-dom";
 import Profile from "../Profile/Profile.js";
 import {getItems, postItems, deleteItems} from "../../utils/Api.js";
+import DeleteItem from "../DeleteItem/DeleteItem.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -25,6 +26,19 @@ function App() {
   const handleCreateModal = () => {
     setActiveModal("create");
   };
+
+  const handleDeleteModal = () => {
+    setActiveModal("delete");
+  }
+
+  const handleDeleteCard = () => {
+    deleteItems(selectedCard._id)
+    .then(() => {
+      setClothingItems(clothingItems.filter((item) => item._id !== selectedCard._id));
+      handleCloseModal();
+    })
+    .catch((err) => console.log(err));
+  }
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -40,9 +54,10 @@ function App() {
   }
 
   const onAddItem = (values) => {
-    const res = postItems(values);
+    const res = postItems(values).then((res) => {
     setClothingItems((items) => [res, ...items]);
     handleCloseModal();
+    }).catch(console.error)
   } ;
 
   useEffect(() => {
@@ -74,7 +89,16 @@ function App() {
         <Footer />
         {activeModal === "create" && <AddItemModal handleCloseModal={handleCloseModal} isOpen={activeModal === "create"} onAddItem={onAddItem} /> }
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal 
+          selectedCard={selectedCard} 
+          onClose={handleCloseModal} 
+          onClick={handleDeleteModal}/>
+        )}
+        {activeModal === "delete" && (
+          <DeleteItem 
+          onClose={handleCloseModal}
+          deleteCard={handleDeleteCard}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
